@@ -143,3 +143,13 @@ android {
 `LocationSettings`の`distanceFilter`にて、更新間隔をメートル単位で制御できる
 
 詳細は[geolocatorのドキュメント](https://pub.dev/packages/geolocator#listen-to-location-updates)を参照
+
+> [!IMPORTANT]
+>
+> [mapbox_maps_flutter](https://pub.dev/packages/mapbox_maps_flutter)と[geolocator](https://pub.dev/packages/geolocator)で`Position`クラス被りがあるため、どちらかにprefixをつけなければならない
+> ```dart
+> import 'package:mapbox_maps_flutter/mapbox_maps_flutter.dart';
+> import 'package:geolocator/geolocator.dart' as g;
+> 
+> g.Position? currentPosition;
+> ```
