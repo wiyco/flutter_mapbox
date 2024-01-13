@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mapbox_maps_flutter/mapbox_maps_flutter.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:geolocator/geolocator.dart' as geo;
 
 class MapboxPage extends StatefulWidget {
   const MapboxPage({super.key, required this.mapboxPublicToken});
@@ -12,9 +14,42 @@ class MapboxPage extends StatefulWidget {
 
 class _MapboxPageState extends State<MapboxPage> {
   MapboxMap? mapboxMap;
+  Position currentPosition = Position(0, 0);
 
-  _onMapCreated(MapboxMap mapboxMap) {
+  _onMapCreated(MapboxMap mapboxMap) async {
     this.mapboxMap = mapboxMap;
+    await _getPermissions();
+    await _showLocation2D();
+    currentPosition = _getCurrentPosition();
+  }
+
+  _showLocation2D() {
+    mapboxMap?.location.updateSettings(LocationComponentSettings(
+      enabled: true,
+      puckBearingEnabled: true,
+      pulsingEnabled: true,
+      showAccuracyRing: true,
+    ));
+  }
+
+  _getPermissions() async {
+    await Permission.location.request();
+  }
+
+  _getCurrentPosition() async {
+    final position = await geo.Geolocator.getCurrentPosition(
+        desiredAccuracy: geo.LocationAccuracy.high);
+    return Position(position.longitude, position.latitude);
+  }
+
+  _setCameraPosition() async {
+    final position = await _getCurrentPosition();
+    mapboxMap?.setCamera(
+      CameraOptions(
+        center: position,
+        zoom: 16,
+      ),
+    );
   }
 
   @override
