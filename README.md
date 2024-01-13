@@ -91,7 +91,7 @@ android {
 
 [permission_handler](https://pub.dev/packages/permission_handler)で位置情報の許可を管理する。
 
-> [!TIP]
+> [!NOTE]
 >
 > 写真フォルダの読み取りなど、他の許可もまとめて管理できるためこちらを使う。
 
@@ -102,7 +102,7 @@ android {
 
 > [!TIP]
 >
-> 下記はアプリを開いている時の許可
+> 下記はアプリを開いている時の許可設定
 >
 > バックグラウンドでの許可は[geolocatorのドキュメント](https://pub.dev/packages/geolocator#usage)がわかりやすい
 
