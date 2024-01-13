@@ -38,6 +38,7 @@ dependencies:
   flutter_dotenv: ^5.1.0
   mapbox_maps_flutter: ^0.5.1
   permission_handler: ^11.1.0
+  geolocator: ^10.1.0
 
 dev_dependencies:
   flutter_test:
