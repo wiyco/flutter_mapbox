@@ -89,7 +89,7 @@ android {
 
 ## 位置情報
 
-[permission_handler](https://pub.dev/packages/permission_handler)で位置情報の許可を管理する。
+[permission_handler](https://pub.dev/packages/permission_handler)で位置情報の許可を管理する
 
 > [!NOTE]
 >
@@ -132,12 +132,10 @@ android {
 
 ### 現在位置
 
-[geolocator](https://pub.dev/packages/geolocator)を使う。
+[geolocator](https://pub.dev/packages/geolocator)を使う
 
 > [!NOTE]
 >
 > Mapboxは現在位置にアイコンが表示されるため、メソッドから座標を取得しようとしたが見つからなかった
 
-カメラ追従は自作する必要があるか。
-
-Unityの`Update`メソッドのようなものがあればいいが。。。
+カメラ追従は`geolocator`の`getPositionStream`を使うことで実現できる
