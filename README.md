@@ -146,7 +146,7 @@ android {
 
 > [!IMPORTANT]
 >
-> [mapbox_maps_flutter](https://pub.dev/packages/mapbox_maps_flutter)と[geolocator](https://pub.dev/packages/geolocator)で`Position`クラス被りがあるため、どちらかにprefixをつけなければならない
+> [mapbox_maps_flutter](https://pub.dev/packages/mapbox_maps_flutter)と[geolocator](https://pub.dev/packages/geolocator)で`Position`のクラス被りがあるため、どちらかにprefixをつけなければならない
 > ```dart
 > import 'package:mapbox_maps_flutter/mapbox_maps_flutter.dart';
 > import 'package:geolocator/geolocator.dart' as g;
