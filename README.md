@@ -135,8 +135,8 @@ android {
 現在位置は[geolocator](https://pub.dev/packages/geolocator)で取得する。
 
 > [!NOTE]
-> 
-> [mapbox_maps_flutter](https://pub.dev/packages/mapbox_maps_flutter)で現在位置にアイコンを置けるため、ここから座標を取得できるかと思ったが、そのようなメソッドは見つからなかった。
+>
+> Mapboxは現在位置にアイコンが表示されるため、メソッドから座標を取得しようとしたが見つからなかった
 
 カメラ追従は自作する必要があるか。
 
