@@ -74,6 +74,8 @@ machine api.mapbox.com
 
 #### Android
 
+`(project)/android/app/build.gradle`
+
 ```groovy
 android {
   defaultConfig {
