@@ -44,11 +44,14 @@ class _MapboxPageState extends State<MapboxPage> {
 
   _setCameraPosition() async {
     final position = await _getCurrentPosition();
-    mapboxMap?.setCamera(
+    mapboxMap?.easeTo(
       CameraOptions(
         center: position,
         zoom: 16,
+        bearing: 0,
+        pitch: 3,
       ),
+      MapAnimationOptions(duration: 2000, startDelay: 0),
     );
   }
 
