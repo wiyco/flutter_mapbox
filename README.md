@@ -132,7 +132,7 @@ android {
 
 ### 現在位置
 
-現在位置は[geolocator](https://pub.dev/packages/geolocator)で取得する。
+[geolocator](https://pub.dev/packages/geolocator)を使う。
 
 > [!NOTE]
 >
