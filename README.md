@@ -37,6 +37,8 @@ final String mapboxPublicToken = dotenv.get('MAPBOX_PUBLIC_TOKEN');
 
 ### Mapbox
 
+Mapは[mapbox_maps_flutter](https://pub.dev/packages/mapbox_maps_flutter)を使う (公式の`mapbox_gl`ではない←開発打ち切りで古い)
+
 PublicとSecret両方のトークンが必要 (Publicトークンは前述で追加済み)
 
 - Public token (Default)
@@ -87,9 +89,11 @@ android {
 
 ## 位置情報
 
-Mapは[mapbox_maps_flutter](https://pub.dev/packages/mapbox_maps_flutter)を使う (公式の`mapbox_gl`ではない←開発打ち切りで古い)
+[permission_handler](https://pub.dev/packages/permission_handler)で位置情報の許可を管理する。
 
-また、[permission_handler](https://pub.dev/packages/permission_handler)で位置情報の許可を管理する。
+> [!TIP]
+>
+> 写真フォルダの読み取りなど、他の許可もまとめて管理できるためこちらを使う。
 
 ### Permission設定
 
@@ -125,3 +129,15 @@ Mapは[mapbox_maps_flutter](https://pub.dev/packages/mapbox_maps_flutter)を使�
 	<string>This app needs access to location when open.</string>
 </dict>
 ```
+
+### 現在位置
+
+現在位置は[geolocator](https://pub.dev/packages/geolocator)で取得する。
+
+> [!NOTE]
+> 
+> [mapbox_maps_flutter](https://pub.dev/packages/mapbox_maps_flutter)で現在位置にアイコンを置けるため、ここから座標を取得できるかと思ったが、そのようなメソッドは見つからなかった。
+
+カメラ追従は自作する必要があるか。
+
+Unityの`Update`メソッドのようなものがあればいいが。。。
