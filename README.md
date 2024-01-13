@@ -139,3 +139,7 @@ android {
 > Mapboxは現在位置にアイコンが表示されるため、メソッドから座標を取得しようとしたが見つからなかった
 
 カメラ追従は`geolocator`の`getPositionStream`を使うことで実現できる
+
+`LocationSettings`の`distanceFilter`にて、更新間隔をメートル単位で制御できる
+
+詳細は[geolocatorのドキュメント](https://pub.dev/packages/geolocator#listen-to-location-updates)を参照
