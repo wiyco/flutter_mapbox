@@ -165,6 +165,12 @@ android {
 - [超絶優良記事](https://zenn.dev/norimaki0631/articles/b23a37354d3409)
 - [公式ドキュメント](https://riverpod.dev/docs/introduction/getting_started)
 
+### VSCode
+
+- [Flutter Riverpod Snippets](https://marketplace.visualstudio.com/items?itemName=robert-brunhage.flutter-riverpod-snippets)
+
+### Code Generation
+
 [Code generation](https://riverpod.dev/docs/concepts/about_code_generation)やべえ
 
 > [!TIP]
@@ -184,10 +190,6 @@ dart run build_runner watch --delete-conflicting-outputs
 > Nodeみたくコマンドのショートカット`scripts`を定義しようとしたが、`pubspec.yaml`にはなかった
 >
 > `derry`, `rps`などあるが、`dart pub global activate`が必要なため断念
-
-### VSCode
-
-- [Flutter Riverpod Snippets](https://marketplace.visualstudio.com/items?itemName=robert-brunhage.flutter-riverpod-snippets)
 
 ---
 
