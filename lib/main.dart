@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'map.dart';
+
+part 'main.g.dart';
 
 Future<void> main() async {
   await dotenv.load(fileName: '.env.local');
@@ -13,6 +16,7 @@ Future<void> main() async {
   );
 }
 
+// StatelessWidget
 class App extends StatelessWidget {
   const App({super.key});
 
@@ -29,30 +33,25 @@ class App extends StatelessWidget {
   }
 }
 
-class HomePage extends StatefulWidget {
+@riverpod
+class Counter extends _$Counter {
+  @override
+  int build() => 0;
+
+  void increment() => state++;
+}
+
+class HomePage extends ConsumerWidget {
   const HomePage({super.key, required this.title});
 
   final String title;
 
   @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        title: Text(title),
       ),
       body: Center(
         child: Column(
@@ -62,7 +61,7 @@ class _HomePageState extends State<HomePage> {
               'You have pushed the button this many times:',
             ),
             Text(
-              '$_counter',
+              '${ref.watch(counterProvider)}',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             ElevatedButton(
@@ -80,7 +79,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: ref.read(counterProvider.notifier).increment,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
