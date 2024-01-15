@@ -171,13 +171,13 @@ android {
 >
 > Code generationでは、プロジェクトを開いた後に以下を実行しなければならない
 >
-> `ファイルのビルドを自動で行う`
->
-> ```shell
-> dart run build_runner watch --delete-conflicting-outputs
-> ```
->
 > 詳細は[build_runnerのドキュメント](https://pub.dev/packages/build_runner#docs)
+
+`ファイルのビルドを自動で行う`
+
+```shell
+dart run build_runner watch --delete-conflicting-outputs
+```
 
 > [!NOTE]
 >
