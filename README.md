@@ -165,7 +165,7 @@ android {
 - [超絶優良記事](https://zenn.dev/norimaki0631/articles/b23a37354d3409)
 - [公式ドキュメント](https://riverpod.dev/docs/introduction/getting_started)
 
-### VSCode
+### VSCode Extensions
 
 - [Flutter Riverpod Snippets](https://marketplace.visualstudio.com/items?itemName=robert-brunhage.flutter-riverpod-snippets)
 
