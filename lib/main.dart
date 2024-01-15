@@ -5,6 +5,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'map.dart';
 
+/** Code generation */
 part 'main.g.dart';
 
 Future<void> main() async {
