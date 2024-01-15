@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart' as gl;
 import 'package:mapbox_maps_flutter/mapbox_maps_flutter.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:geolocator/geolocator.dart' as gl;
 
 class MapboxPage extends StatefulWidget {
   const MapboxPage({super.key, required this.mapboxPublicToken});
@@ -104,7 +104,7 @@ class _MapboxPageState extends State<MapboxPage> {
         title: const Text('Mapbox'),
       ),
       body: MapWidget(
-        key: const ValueKey("mapWidget"),
+        key: const ValueKey('mapWidget'),
         resourceOptions: ResourceOptions(accessToken: widget.mapboxPublicToken),
         cameraOptions: _cameraOptions,
         onMapCreated: _onMapCreated,

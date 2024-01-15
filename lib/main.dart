@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 import 'map.dart';
 
 Future<void> main() async {
@@ -65,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                     MaterialPageRoute(
                         builder: (context) => MapboxPage(
                               mapboxPublicToken:
-                                  dotenv.get("MAPBOX_PUBLIC_TOKEN"),
+                                  dotenv.get('MAPBOX_PUBLIC_TOKEN'),
                             )),
                   );
                 },
