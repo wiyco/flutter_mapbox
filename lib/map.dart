@@ -109,6 +109,10 @@ class _MapboxPageState extends State<MapboxPage> {
         cameraOptions: _cameraOptions,
         onMapCreated: _onMapCreated,
       ),
+      floatingActionButton: FloatingActionButton(
+          onPressed: () => {},
+          tooltip: 'Show current location',
+          child: const Icon(Icons.note_add)),
     );
   }
 }
