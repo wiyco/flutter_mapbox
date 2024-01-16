@@ -140,7 +140,7 @@ android {
 
 カメラ追従は`geolocator`の`getPositionStream`を使うことで実現できる
 
-`LocationSettings`の`distanceFilter`にて、更新間隔をメートル単位で制御できる
+さらに`LocationSettings`の`distanceFilter`にて、Stream間隔をメートル単位で制御できる
 
 詳細は[geolocatorのドキュメント](https://pub.dev/packages/geolocator#listen-to-location-updates)を参照
 
@@ -184,6 +184,10 @@ android {
 ```shell
 dart run build_runner watch --delete-conflicting-outputs
 ```
+
+> [!IMPORTANT]
+>
+> コンソールは複数起動できるので、`flutter run`しながら上記を実行可
 
 > [!NOTE]
 >
