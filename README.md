@@ -195,6 +195,16 @@ dart run build_runner watch --delete-conflicting-outputs
 >
 > `derry`, `rps`などは、`dart pub global activate`が必要なため断念
 
+## freezed
+
+flutterはモデルを定義する機能が弱い
+
+そのため、モデルクラスを定義する際は[freezed](https://pub.dev/packages/freezed)を使う
+
+- [超絶優良記事](https://zenn.dev/joo_hashi/books/2c6c47e3d79b63/viewer/79d890)
+
+調査中...
+
 ---
 
 🦊
