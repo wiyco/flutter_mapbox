@@ -189,7 +189,7 @@ dart run build_runner watch --delete-conflicting-outputs
 >
 > Nodeの`package.json`みたく`scripts`を定義しようとしたが、`pubspec.yaml`にはない
 >
-> `derry`, `rps`などあるが、`dart pub global activate`が必要なため断念
+> `derry`, `rps`などは、`dart pub global activate`が必要なため断念
 
 ---
 
