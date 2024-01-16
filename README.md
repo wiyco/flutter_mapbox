@@ -203,13 +203,15 @@ flutterはモデルを定義する機能が弱い
 
 - [超絶優良記事](https://zenn.dev/joo_hashi/books/2c6c47e3d79b63/viewer/79d890)
 
-調査中...
+***調査中...***
 
 ---
 
-## 設計について
+## 設計
 
-[ドメイン駆動設計(DDD/Domain-Driven Design)]()が良い？
+[ドメイン駆動設計(DDD/Domain-Driven Design)](https://zenn.dev/midman/articles/0b802fdfeb889b)が良い？
+
+***調査中...***
 
 ---
 
