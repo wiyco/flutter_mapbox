@@ -179,7 +179,7 @@ android {
 >
 > 詳細は[build_runnerのドキュメント](https://pub.dev/packages/build_runner#docs)
 
-`ファイルのビルドを自動で行う`
+`*.g.dart`ファイルのビルドを自動で行う
 
 ```shell
 dart run build_runner watch --delete-conflicting-outputs
