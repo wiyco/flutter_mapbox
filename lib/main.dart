@@ -68,11 +68,7 @@ class HomePage extends ConsumerWidget {
             ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).push(
-                    MaterialPageRoute(
-                        builder: (context) => MapboxPage(
-                              mapboxPublicToken:
-                                  dotenv.get('MAPBOX_PUBLIC_TOKEN'),
-                            )),
+                    MaterialPageRoute(builder: (context) => const MapboxPage()),
                   );
                 },
                 child: const Text('Open Map'))

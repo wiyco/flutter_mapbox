@@ -1,20 +1,20 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart' as gl;
 import 'package:mapbox_maps_flutter/mapbox_maps_flutter.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-class MapboxPage extends StatefulWidget {
-  const MapboxPage({super.key, required this.mapboxPublicToken});
-
-  final String mapboxPublicToken;
+class MapboxPage extends ConsumerStatefulWidget {
+  const MapboxPage({super.key});
 
   @override
-  State<MapboxPage> createState() => _MapboxPageState();
+  ConsumerState<MapboxPage> createState() => _MapboxPageState();
 }
 
-class _MapboxPageState extends State<MapboxPage> {
+class _MapboxPageState extends ConsumerState<MapboxPage> {
   late MapboxMap _mapboxMap;
   late StreamSubscription<gl.Position> _currentPositionStream;
   gl.Position? _currentPosition;
@@ -105,7 +105,8 @@ class _MapboxPageState extends State<MapboxPage> {
       ),
       body: MapWidget(
         key: const ValueKey('mapWidget'),
-        resourceOptions: ResourceOptions(accessToken: widget.mapboxPublicToken),
+        resourceOptions:
+            ResourceOptions(accessToken: dotenv.get('MAPBOX_PUBLIC_TOKEN')),
         cameraOptions: _cameraOptions,
         onMapCreated: _onMapCreated,
       ),
