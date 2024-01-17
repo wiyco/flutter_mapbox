@@ -7,6 +7,15 @@ import 'package:geolocator/geolocator.dart' as gl;
 import 'package:mapbox_maps_flutter/mapbox_maps_flutter.dart';
 import 'package:permission_handler/permission_handler.dart';
 
+final currentPositionProvider = StreamProvider<gl.Position?>((ref) {
+  const locationSettings = gl.LocationSettings(
+    accuracy: gl.LocationAccuracy.best,
+    distanceFilter: 10,
+  );
+
+  return gl.Geolocator.getPositionStream(locationSettings: locationSettings);
+});
+
 class MapboxPage extends ConsumerStatefulWidget {
   const MapboxPage({super.key});
 
@@ -17,7 +26,7 @@ class MapboxPage extends ConsumerStatefulWidget {
 class _MapboxPageState extends ConsumerState<MapboxPage> {
   late MapboxMap _mapboxMap;
   late StreamSubscription<gl.Position> _currentPositionStream;
-  gl.Position? _currentPosition;
+  static gl.Position? _currentPosition;
 
   final _locationSettings = const gl.LocationSettings(
     accuracy: gl.LocationAccuracy.best,
@@ -36,10 +45,8 @@ class _MapboxPageState extends ConsumerState<MapboxPage> {
     _currentPositionStream =
         gl.Geolocator.getPositionStream(locationSettings: _locationSettings)
             .listen((gl.Position? position) {
-      if (position != null) {
-        _currentPosition = position;
-        _updateCameraPosition(position);
-      }
+      _currentPosition = position;
+      _updateCameraPosition(position ?? _currentPosition!);
     });
   }
 
@@ -58,7 +65,7 @@ class _MapboxPageState extends ConsumerState<MapboxPage> {
   void _initCurrentLocation() async {
     await Permission.location.request();
     _currentPosition = await gl.Geolocator.getCurrentPosition(
-        desiredAccuracy: _locationSettings.accuracy);
+        desiredAccuracy: gl.LocationAccuracy.high);
     await _mapboxMap.setCamera(CameraOptions(
       center: Point(
         coordinates: Position(
