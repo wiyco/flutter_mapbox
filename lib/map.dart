@@ -7,15 +7,6 @@ import 'package:geolocator/geolocator.dart' as gl;
 import 'package:mapbox_maps_flutter/mapbox_maps_flutter.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-final currentPositionProvider = StreamProvider<gl.Position?>((ref) {
-  const locationSettings = gl.LocationSettings(
-    accuracy: gl.LocationAccuracy.best,
-    distanceFilter: 10,
-  );
-
-  return gl.Geolocator.getPositionStream(locationSettings: locationSettings);
-});
-
 class MapboxPage extends ConsumerStatefulWidget {
   const MapboxPage({super.key});
 
