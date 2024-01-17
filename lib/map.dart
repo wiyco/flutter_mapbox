@@ -17,7 +17,7 @@ class MapboxPage extends ConsumerStatefulWidget {
 class _MapboxPageState extends ConsumerState<MapboxPage> {
   late MapboxMap _mapboxMap;
   late StreamSubscription<gl.Position> _currentPositionStream;
-  static gl.Position? _currentPosition;
+  static gl.Position? currentPosition;
 
   final _locationSettings = const gl.LocationSettings(
     accuracy: gl.LocationAccuracy.best,
@@ -36,8 +36,8 @@ class _MapboxPageState extends ConsumerState<MapboxPage> {
     _currentPositionStream =
         gl.Geolocator.getPositionStream(locationSettings: _locationSettings)
             .listen((gl.Position? position) {
-      _currentPosition = position;
-      _updateCameraPosition(position ?? _currentPosition!);
+      currentPosition = position;
+      _updateCameraPosition(position ?? currentPosition!);
     });
   }
 
@@ -55,13 +55,13 @@ class _MapboxPageState extends ConsumerState<MapboxPage> {
 
   void _initCurrentLocation() async {
     await Permission.location.request();
-    _currentPosition = await gl.Geolocator.getCurrentPosition(
+    currentPosition = await gl.Geolocator.getCurrentPosition(
         desiredAccuracy: gl.LocationAccuracy.high);
     await _mapboxMap.setCamera(CameraOptions(
       center: Point(
         coordinates: Position(
-          _currentPosition!.longitude,
-          _currentPosition!.latitude,
+          currentPosition!.longitude,
+          currentPosition!.latitude,
         ),
       ).toJson(),
       zoom: 15,
