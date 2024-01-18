@@ -205,6 +205,12 @@ flutterはモデルを定義する機能が弱い
 
 ***調査中...***
 
+## Retrofit
+
+Apiとの通信では[retrofit](https://pub.dev/packages/retrofit)を使う
+
+***調査中...***
+
 ---
 
 ## 設計
