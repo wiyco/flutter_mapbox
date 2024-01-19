@@ -119,7 +119,7 @@ class _MapboxPageState extends ConsumerState<MapboxPage> {
       ),
       floatingActionButton: FloatingActionButton(
           onPressed: () => {},
-          tooltip: 'Show current location',
+          tooltip: 'Dummy button',
           child: const Icon(Icons.note_add)),
     );
   }
